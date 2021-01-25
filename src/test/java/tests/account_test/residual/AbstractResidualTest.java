@@ -14,7 +14,7 @@ import static private_data.PrivateData.USERNAME;
  */
 public abstract class AbstractResidualTest extends AbstractAccountTest {
 
-    @AfterMethod
+    @AfterMethod(description = "Open site and clear account list")
     public void clearAccountList() {
         endTest();
         initTest();

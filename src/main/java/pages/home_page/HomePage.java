@@ -1,6 +1,7 @@
 package pages.home_page;
 
 import elements.home_page.new_account.ContextBarButton;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,26 +38,23 @@ public class HomePage extends AbstractPage {
         return this;
     }
 
+    @Step(value = "Click context bar button titled '{title}'")
     public HomePage clickContextBarButton(String title) {
         new ContextBarButton(driver, title).click();
         return this;
     }
 
+    @Step(value = "Click new account button")
     public NewAccountModal clickNewAccountButton() {
         waitForElementToBeClickable(NEW_ACCOUNT_BUTTON_BY);
         driver.findElement(NEW_ACCOUNT_BUTTON_BY).click();
         return new NewAccountModal(driver).waitForPageLoaded();
     }
 
+    @Step(value = "Close 'account created' notification")
     public HomePage clickCloseAccountCreatedButton() {
         waitForElementToBeClickable(CLOSE_ACCOUNT_CREATED_NOTIFICATION_BUTTON_BY);
         driver.findElement(CLOSE_ACCOUNT_CREATED_NOTIFICATION_BUTTON_BY).click();
-        return this;
-    }
-
-    public HomePage clickAccountManageDropdown() {
-        waitForElementToBeClickable(ACCOUNTS_MANAGE_DROPDOWN_BY);
-        driver.findElement(ACCOUNTS_MANAGE_DROPDOWN_BY).click();
         return this;
     }
 
@@ -91,6 +89,7 @@ public class HomePage extends AbstractPage {
         return accountNames;
     }
 
+    @Step(value = "Clear account list")
     public HomePage deleteAllAccounts() {
         if (getAccountsCount() >= 1) {
             int dropdownCount = driver.findElements(ACCOUNTS_MANAGE_DROPDOWN_BY).size();

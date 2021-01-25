@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,7 @@ public class LoginPage extends AbstractPage {
     }
 
     @Override
+    @Step(value = "Open login page")
     public LoginPage openPage() {
         driver.get(LOGIN_URL);
         return this;
@@ -36,6 +38,14 @@ public class LoginPage extends AbstractPage {
 
     public HomePage clickLoginButton() {
         loginButton.click();
+        return new HomePage(driver);
+    }
+
+    @Step(value = "Logging in")
+    public HomePage login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        clickLoginButton();
         return new HomePage(driver);
     }
 }

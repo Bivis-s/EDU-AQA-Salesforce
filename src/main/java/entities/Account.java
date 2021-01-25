@@ -171,4 +171,27 @@ public class Account {
     public String getShippingCountry() {
         return shippingCountry;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountName='" + accountName + '\'' + "\n" +
+                ", type='" + type + '\'' + "\n" +
+                ", website='" + website + '\'' + "\n" +
+                ", description='" + description + '\'' + "\n" +
+                ", phone='" + phone + '\'' + "\n" +
+                ", industry='" + industry + '\'' + "\n" +
+                ", employees=" + employees + "\n" +
+                ", billingStreet='" + billingStreet + '\'' + "\n" +
+                ", billingCity='" + billingCity + '\'' + "\n" +
+                ", billingZip='" + billingZip + '\'' + "\n" +
+                ", billingState='" + billingState + '\'' + "\n" +
+                ", billingCountry='" + billingCountry + '\'' + "\n" +
+                ", shippingStreet='" + shippingStreet + '\'' + "\n" +
+                ", shippingCity='" + shippingCity + '\'' + "\n" +
+                ", shippingZip='" + shippingZip + '\'' + "\n" +
+                ", shippingState='" + shippingState + '\'' + "\n" +
+                ", shippingCountry='" + shippingCountry + '\'' +
+                '}';
+    }
 }

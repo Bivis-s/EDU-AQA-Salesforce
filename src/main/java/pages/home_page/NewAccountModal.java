@@ -4,6 +4,7 @@ import elements.home_page.new_account.DropDown;
 import elements.home_page.new_account.Input;
 import elements.home_page.new_account.Textarea;
 import entities.Account;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -39,6 +40,7 @@ public class NewAccountModal extends AbstractPage {
         new Textarea(driver, label).write(text);
     }
 
+    @Step(value = "Create an account")
     public NewAccountModal createAccount(Account account) {
         writeToInput("Account Name", account.getAccountName());
         selectDropdown("Type", account.getType());
@@ -60,11 +62,7 @@ public class NewAccountModal extends AbstractPage {
         return this;
     }
 
-    public HomePage clickCloseButton() {
-        driver.findElement(CLOSE_BUTTON).click();
-        return new HomePage(driver);
-    }
-
+    @Step(value = "Click save button")
     public HomePage clickSaveButton() {
         driver.findElement(SAVE_BUTTON).click();
         return new HomePage(driver);
