@@ -36,7 +36,7 @@ public class NewAccountModal extends AbstractPage {
         new DropDown(driver, label).select(option);
     }
 
-    private void writeToTextarea(String label, String text) {
+    private void writeToTextArea(String label, String text) {
         new Textarea(driver, label).write(text);
     }
 
@@ -48,13 +48,13 @@ public class NewAccountModal extends AbstractPage {
         writeToInput("Phone", account.getPhone());
         selectDropdown("Industry", account.getIndustry());
         writeToInput("Employees", String.valueOf(account.getEmployees()));
-        writeToTextarea("Description", account.getDescription());
-        writeToTextarea("Billing Street", account.getBillingStreet());
+        writeToTextArea("Description", account.getDescription());
+        writeToTextArea("Billing Street", account.getBillingStreet());
         writeToInput("Billing City", account.getBillingCity());
         writeToInput("Billing Zip", account.getBillingZip());
         writeToInput("Billing State", account.getBillingState());
         writeToInput("Billing Country", account.getBillingCountry());
-        writeToTextarea("Shipping Street", account.getShippingStreet());
+        writeToTextArea("Shipping Street", account.getShippingStreet());
         writeToInput("Shipping City", account.getShippingCity());
         writeToInput("Shipping Zip", account.getShippingZip());
         writeToInput("Shipping State", account.getShippingState());

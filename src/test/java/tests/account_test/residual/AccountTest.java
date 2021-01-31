@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import pages.home_page.HomePage;
 
 import static private_data.PrivateData.PASSWORD;
 import static private_data.PrivateData.USERNAME;
@@ -15,9 +14,8 @@ public class AccountTest extends AbstractResidualTest {
     @Test(description = "Login and create an account on the home page")
     @Description(value = "Login and create an account on the home page")
     public void createAccountTest() {
-        LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.openPage();
-        HomePage homePage = loginPage
+        homePage = new LoginPage(getDriver())
+                .openPage()
                 .login(USERNAME, PASSWORD)
                 .clickContextBarButton("Accounts")
                 .clickNewAccountButton()

@@ -15,7 +15,11 @@ public class ContextBarButton extends AbstractElement {
 
     public void click() {
         waitForElementToBeClickable(BUTTON_BY);
-        Actions actions = new Actions(driver);
-        actions.click(driver.findElement(BUTTON_BY)).build().perform();
+        new Actions(driver)
+                .moveToElement(driver.findElement(BUTTON_BY))
+                .pause(100)
+                .click()
+                .build()
+                .perform();
     }
 }

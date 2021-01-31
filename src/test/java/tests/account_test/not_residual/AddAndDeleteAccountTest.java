@@ -5,20 +5,19 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.home_page.HomePage;
-import tests.account_test.AbstractAccountTest;
+import tests.abstract_tests.AbstractTest;
 
 import static private_data.PrivateData.PASSWORD;
 import static private_data.PrivateData.USERNAME;
 import static tests.account_test.AccountTestValues.ACCOUNT;
 
-public class AddAndDeleteAccountTest extends AbstractAccountTest {
+public class AddAndDeleteAccountTest extends AbstractTest {
 
     @Test(description = "Login and create an account on the Home page then delete this account")
     @Description(value = "Login and create an account on the Home page then delete this account")
     public void createAndDeleteAccountTest() {
-        LoginPage loginPage = new LoginPage(getDriver());
-        loginPage.openPage();
-        HomePage homePage = loginPage
+        HomePage homePage = new LoginPage(getDriver())
+                .openPage()
                 .login(USERNAME, PASSWORD)
                 .clickContextBarButton("Accounts")
                 .clickNewAccountButton()
